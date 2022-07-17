@@ -1,0 +1,79 @@
+[
+ {
+   "name": "GREEK YOGURT MILKSHAKE",
+   "price": 12,
+   "category": "strawberry",
+   "image": "https://images.unsplash.com/photo-1619158401201-8fa932695178?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+   "description": "a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, fruit syrup, or whole fruit into a thick, sweet, cold mixture."
+ },
+ {
+   "name": "MOCHA CHOCOLATY MILKSHAKE",
+   "price": 10,
+   "category": "chocolate",
+   "image": "https://images.unsplash.com/photo-1553787499-6f9133860278?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+   "description": "a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, fruit syrup, or whole fruit into a thick, sweet, cold mixture."
+ },
+ {
+   "name": "DIVINE WHITE CHOCOLATE MILKSHAKE",
+   "price": 9,
+   "category": "vanilla",
+   "image": "https://images.unsplash.com/photo-1568901839119-631418a3910d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=349&q=80",
+   "description": "a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, fruit syrup, or whole fruit into a thick, sweet, cold mixture."
+ },
+ {
+   "name": "SUPREME WHITE VANILLA MILKSHAKE",
+   "price": 13,
+   "category": "vanilla",
+   "image": "https://images.unsplash.com/photo-1623065422902-30a2d299bbe4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+   "description": "a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, fruit syrup, or whole fruit into a thick, sweet, cold mixture."
+ },
+ {
+   "name": "CHAI TEA MILKSHAKE",
+   "price": 11,
+   "category": "tea",
+   "image": "https://images.unsplash.com/photo-1580624799286-a306f07816c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+   "description": "a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, fruit syrup, or whole fruit into a thick, sweet, cold mixture."
+ },
+ {
+   "name": "COFFEE BARISTA BLEND MILKSHAKE",
+   "price": 13,
+   "category": "tea",
+   "image": "https://images.unsplash.com/photo-1586985289071-36f62f55ce44?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+   "description": "a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, fruit syrup, or whole fruit into a thick, sweet, cold mixture."
+ },
+ {
+   "name": "STRAWBERRY YOGURT MILKSHAKE",
+   "price": 8,
+   "category": "strawberry",
+   "image": "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
+   "description": "a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, fruit syrup, or whole fruit into a thick, sweet, cold mixture."
+ },
+ {
+   "name": "CHOCOLATE COCONUT MILKSHAKES WITH SEA SALT",
+   "price": 15,
+   "category": "chocolate",
+   "image": "https://images.unsplash.com/photo-1556722283-71e39f3077b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+   "description": "a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, fruit syrup, or whole fruit into a thick, sweet, cold mixture."
+ },
+ {
+   "name": "BANANA PEANUT BUTTER CHOCOLATE MILKSHAKE",
+   "price": 12,
+   "category": "chocolate",
+   "image": "https://images.unsplash.com/photo-1551782450-40537687757d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=388&q=80",
+   "description": "a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, fruit syrup, or whole fruit into a thick, sweet, cold mixture."
+ },
+ {
+   "name": "STRAWBERRY MARSHALLOW MILKSHAKE",
+   "price": 16,
+   "category": "strawberry",
+   "image": "https://images.unsplash.com/photo-1542282910-7337bcfea235?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=372&q=80",
+   "description": "a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, fruit syrup, or whole fruit into a thick, sweet, cold mixture."
+ },
+ {
+   "name": "TARO BUBBLE TEA MILKSHAKE",
+   "price": 11,
+   "category": "tea",
+   "image": "https://images.unsplash.com/photo-1599937577325-e38f27f010db?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+   "description": "a sweet beverage made by blending milk, ice cream, and flavorings or sweeteners such as butterscotch, caramel sauce, chocolate syrup, fruit syrup, or whole fruit into a thick, sweet, cold mixture."
+ }
+]
