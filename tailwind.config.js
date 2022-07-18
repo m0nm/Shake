@@ -27,7 +27,7 @@ module.exports = {
         light: {
           primary: "#dd2d50",
           secondary: "#161e29",
-          accent: "#CEDBEB",
+          accent: "#e1f3fa",
           neutral: "#110E0E",
           "base-100": "#171212",
           info: "#3ABFF8",
