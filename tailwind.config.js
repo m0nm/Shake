@@ -7,8 +7,12 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: "Montserrat",
+        primary: "Poppins",
         secondary: "Poiret One",
+      },
+
+      backgroundColor: {
+        pinky: "#FFB8C9",
       },
     },
   },

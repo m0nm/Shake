@@ -6,7 +6,7 @@ import logo from "../public/logo.png";
 
 function Navbar() {
   return (
-    <div className="navbar bg-transparent md:container md:mx-auto pt-4">
+    <div className="navbar bg-pinky px-8">
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
           <svg
