@@ -6,10 +6,50 @@ import logo from "../public/logo.png";
 
 function Navbar() {
   return (
-    <div className="navbar bg-transparent container mx-auto pt-4">
+    <div className="navbar bg-transparent md:container md:mx-auto pt-4">
+      <div className="dropdown">
+        <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h8m-8 6h16"
+            />
+          </svg>
+        </label>
+        <ul
+          tabIndex={0}
+          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-accent rounded-box w-52"
+        >
+          <li className="font-medium link-underline link-underline-black hover:text-primary">
+            <Link href="/">Home</Link>
+          </li>
+
+          <li className="font-medium link-underline link-underline-black hover:text-primary">
+            <Link href="/">Specialities</Link>
+          </li>
+
+          <li className="font-medium link-underline link-underline-black hover:text-primary">
+            <Link href="/">About Us</Link>
+          </li>
+
+          <li className="font-medium link-underline link-underline-black hover:text-primary">
+            <Link href="/">Locate Us</Link>
+          </li>
+        </ul>
+      </div>
+
       <div className="navbar-start">
         <Image src={logo} alt="shake logo" width={86} height={40} />
       </div>
+
       <div className="navbar-center hidden lg:flex">
         <ul className="flex gap-12 text-secondary">
           <li className="font-medium link-underline link-underline-black hover:text-primary">
@@ -31,7 +71,9 @@ function Navbar() {
       </div>
 
       <div className="navbar-end">
-        <a className="btn btn-outline btn-primary rounded-3xl px-8">Sign In</a>
+        <a className="btn btn-outline btn-sm md:btn-md btn-primary rounded-3xl px-4 md:px-8">
+          Sign In
+        </a>
       </div>
     </div>
   );
