@@ -1,3 +1,4 @@
+/* nav links underline animation effect */
 .link-underline {
   border-bottom-width: 0;
   background-image: linear-gradient(transparent, transparent),
@@ -16,4 +17,12 @@
 .link-underline:hover {
   background-size: 100% 2px;
   background-position: 0 100%;
+}
+
+/* header bottom wave */
+.wave {
+  background-image: url("../public/asset/wave.svg");
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-attachment: initial;
 }

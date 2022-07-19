@@ -5,11 +5,10 @@ import heroImage from "../public/asset/hero-25.png";
 import blob1 from "../public/asset/blob1.svg";
 import blob2 from "../public/asset/blob2.svg";
 import blob3 from "../public/asset/blob3.svg";
-import wave from "../public/asset/wave.svg";
 
 function Header() {
   return (
-    <header className="bg-pinky relative min-h-screen">
+    <header className="bg-pinky relative min-h-screen wave pb-24">
       <div className="flex flex-col md:flex-row items-center gap-8 py-8 px-2 md:px-8">
         {/* blobs */}
         <div className="absolute top-1 -z-10 md:z-10">
@@ -35,7 +34,8 @@ function Header() {
             Homemade
             <span className="text-primary"> Milkshakes!</span>
           </h1>
-          <button className="btn btn-primary btn-lg rounded-full px-10 mt-12 mb-12 md:mb-0">
+
+          <button className="btn btn-primary btn-lg rounded-full px-10 mt-16 mb-12 md:mb-0">
             Shop Now
           </button>
         </div>
@@ -48,11 +48,6 @@ function Header() {
             <Image src={heroImage} alt="" />
           </div>
         </div>
-      </div>
-
-      {/* wave */}
-      <div className="w-full">
-        <Image src={wave} alt="" />
       </div>
     </header>
   );
