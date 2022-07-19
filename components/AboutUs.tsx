@@ -11,7 +11,7 @@ import light2 from "../public/asset/light-blob-2.svg";
 
 function AboutUs() {
   return (
-    <section className="relative min-h-screen grid place-items-center overflow-y-hidden">
+    <section className="relative min-h-screen grid place-items-center mt-20 overflow-y-hidden">
       {/* subtle light effect */}
       <div className="absolute top-8 -left-2 scale-95 pointer-events-none">
         <Image src={light} alt="" />
@@ -21,11 +21,9 @@ function AboutUs() {
         <Image src={light2} alt="" />
       </div>
 
-      <div className="w-full flex flex-col md:flex-row px-12">
-        {/* images */}
-
+      <div className="relative z-10 w-full flex flex-col md:flex-row gap-6 px-1 md:px-12">
         {/* content */}
-        <div className="w-1/2">
+        <div className="md:w-1/2 text-center">
           <h3 className="text-4xl font-semibold">About Us</h3>
           <p className="text-slate-600 leading-relaxed my-10">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores
@@ -44,6 +42,36 @@ function AboutUs() {
           <button className="btn btn-primary rounded-full px-8 text-white font-medium">
             Discover Our Social Media!
           </button>
+        </div>
+
+        {/* images */}
+        <div className="md:w-1/2 h-[640px] grid grid-cols-4 gap-4">
+          <div className="col-span-2 grid grid-rows-6 gap-2">
+            <div className="card relative row-span-2 shadow-xl hover:scale-105 transition-all duration-500">
+              <figure>
+                <Image src={image4} alt="" layout="fill" />
+              </figure>
+            </div>
+
+            <div className="card relative row-span-4 shadow-xl hover:scale-105 transition-all duration-500">
+              <figure>
+                <Image src={image1} alt="" layout="fill" />
+              </figure>
+            </div>
+          </div>
+
+          <div className="col-span-2 grid grid-rows-6 gap-2">
+            <div className="card relative row-span-4 shadow-xl hover:scale-105 transition-all duration-500">
+              <figure>
+                <Image src={image3} alt="" layout="fill" />
+              </figure>
+            </div>
+            <div className="card relative row-span-2 shadow-xl hover:scale-105 transition-all duration-500">
+              <figure>
+                <Image src={image2} alt="" layout="fill" />
+              </figure>
+            </div>
+          </div>
         </div>
       </div>
     </section>
