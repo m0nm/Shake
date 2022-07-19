@@ -47,7 +47,15 @@ function Navbar() {
       </div>
 
       <div className="navbar-start">
-        <Image src={logo} alt="shake logo" width={86} height={40} />
+        <Link href="/">
+          <Image
+            src={logo}
+            alt="shake logo"
+            className="cursor-pointer"
+            width={86}
+            height={40}
+          />
+        </Link>
       </div>
 
       <div className="navbar-center hidden lg:flex">
