@@ -1,9 +1,9 @@
 import Image from "next/image";
 import React from "react";
 
-import speciality1 from "../public/asset/speciality-1.png";
-import speciality2 from "../public/asset/speciality-2.png";
-import speciality3 from "../public/asset/speciality-3.png";
+import speciality1 from "../public/asset/specialities/speciality-1.png";
+import speciality2 from "../public/asset/specialities/speciality-2.png";
+import speciality3 from "../public/asset/specialities/speciality-3.png";
 
 function Specialities() {
   return (

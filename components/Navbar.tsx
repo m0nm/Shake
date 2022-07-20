@@ -6,7 +6,8 @@ import logo from "../public/logo.png";
 
 function Navbar() {
   return (
-    <div className="navbar bg-pinky px-8">
+    <div className="navbar bg-pinky pr-3 md:px-8">
+      {/* mobile dropdown */}
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
           <svg
@@ -46,7 +47,8 @@ function Navbar() {
         </ul>
       </div>
 
-      <div className="navbar-start">
+      {/* logo */}
+      <div className="navbar-start w-fit md:w-1/2 mx-auto md:mx-0">
         <Link href="/">
           <Image
             src={logo}
@@ -58,6 +60,7 @@ function Navbar() {
         </Link>
       </div>
 
+      {/* links */}
       <div className="navbar-center hidden lg:flex">
         <ul className="flex gap-12 text-secondary">
           <li className="font-medium link-underline link-underline-black hover:text-primary">
@@ -78,7 +81,8 @@ function Navbar() {
         </ul>
       </div>
 
-      <div className="navbar-end">
+      {/* sign in */}
+      <div className="navbar-end w-fit md:w-1/2">
         <a className="btn btn-outline btn-sm md:btn-md btn-primary rounded-3xl px-4 md:px-8">
           Sign In
         </a>

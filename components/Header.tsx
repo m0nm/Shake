@@ -1,10 +1,10 @@
 import Image from "next/image";
 import React from "react";
 
-import heroImage from "../public/asset/hero-25.png";
-import blob1 from "../public/asset/blob1.svg";
-import blob2 from "../public/asset/blob2.svg";
-import blob3 from "../public/asset/blob3.svg";
+import heroImage from "../public/asset/hero/hero-25.png";
+import blob1 from "../public/asset/blobs/blob1.svg";
+import blob2 from "../public/asset/blobs/blob2.svg";
+import blob3 from "../public/asset/blobs/blob3.svg";
 
 function Header() {
   return (

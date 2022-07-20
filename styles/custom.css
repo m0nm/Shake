@@ -21,7 +21,7 @@
 
 /* header bottom wave */
 .wave {
-  background-image: url("../public/asset/wave.svg");
+  background-image: url("../public/asset/wave/wave.svg");
   background-repeat: no-repeat;
   background-position: bottom left;
   background-attachment: initial;

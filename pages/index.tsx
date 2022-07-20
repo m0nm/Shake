@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import AboutUs from "../components/AboutUs";
+import AuthModal from "../components/Auth/AuthModal";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import Specialities from "../components/Specialities";
@@ -20,6 +21,8 @@ const Home: NextPage = () => {
       <Specialities />
 
       <AboutUs />
+
+      <AuthModal />
     </div>
   );
 };
