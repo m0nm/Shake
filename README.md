@@ -1,4 +1,4 @@
-finish about us
+finish usecontext for madal close (index and forms)
 
 fix widescreen responsive styles
 

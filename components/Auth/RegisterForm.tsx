@@ -1,10 +1,23 @@
 import Image from "next/image";
 
 import google from "../../public/asset/auth/google.svg";
+import close from "../../public/asset/auth/close.svg";
 
-export const RegisterForm = () => {
+type IForm = {
+  handleDisplay: (value: "login" | "register" | "forget") => void;
+};
+
+export const RegisterForm = ({ handleDisplay }: IForm) => {
   return (
-    <form className="w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center">
+    <form className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center">
+      {/* close */}
+      <div
+        onClick={() => handleDisplay("login")}
+        className="absolute top-4 left-4 cursor-pointer"
+      >
+        <Image src={close} alt="back" width={32} height={32} />
+      </div>
+
       <h1 className="font-extrabold text-2xl md:text-3xl">
         Sign up a new account
       </h1>
@@ -63,7 +76,9 @@ export const RegisterForm = () => {
         Sign Up
       </button>
 
-      <a href="">Already a member? Sign In</a>
+      <p className="cursor-pointer" onClick={() => handleDisplay("login")}>
+        Already a member? Sign In
+      </p>
     </form>
   );
 };

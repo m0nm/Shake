@@ -1,12 +1,19 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useState } from "react";
 import AboutUs from "../components/AboutUs";
 import AuthModal from "../components/Auth/AuthModal";
 import Header from "../components/Header";
+import Location from "../components/Location";
 import Navbar from "../components/Navbar";
 import Specialities from "../components/Specialities";
 
 const Home: NextPage = () => {
+  const [modal, setModal] = useState(false);
+
+  const openModal = () => setModal(true);
+  // const closeModal = () => setModal(false);
+
   return (
     <div>
       <Head>
@@ -14,7 +21,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Navbar />
+      {modal && <AuthModal />}
+
+      <Navbar openModal={openModal} />
 
       <Header />
 
@@ -22,7 +31,7 @@ const Home: NextPage = () => {
 
       <AboutUs />
 
-      <AuthModal />
+      <Location />
     </div>
   );
 };

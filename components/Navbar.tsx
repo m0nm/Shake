@@ -4,7 +4,11 @@ import React from "react";
 
 import logo from "../public/logo.png";
 
-function Navbar() {
+type INavbar = {
+  openModal: () => void;
+};
+
+function Navbar({ openModal }: INavbar) {
   return (
     <div className="navbar bg-pinky pr-3 md:px-8">
       {/* mobile dropdown */}
@@ -82,7 +86,7 @@ function Navbar() {
       </div>
 
       {/* sign in */}
-      <div className="navbar-end w-fit md:w-1/2">
+      <div onClick={openModal} className="navbar-end w-fit md:w-1/2">
         <a className="btn btn-outline btn-sm md:btn-md btn-primary rounded-3xl px-4 md:px-8">
           Sign In
         </a>
