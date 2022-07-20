@@ -32,6 +32,12 @@ const Home: NextPage = () => {
       <AboutUs />
 
       <Location />
+
+      <footer className="bg-white h-12 font-semibold text-center mt-8">
+        <a href="https://github.com/m0nm">
+          Made with <span className="text-red-500">❤</span> by m0nm
+        </a>
+      </footer>
     </div>
   );
 };

@@ -13,16 +13,16 @@ function Specialities() {
       </div>
 
       {/* cards */}
-      <div className="grid grid-cols-6 ">
+      <div className="w-full grid grid-cols-6 place-items-center gap-8">
         {/* card 1 */}
         <div className="relative col-span-6 md:col-span-2 w-fit h-[460px] hover:scale-105 duration-700 transition-all">
-          <div className="absolute -top-20 left-1/2 -translate-x-1/2 z-10">
+          <div className="absolute -top-20 z-10">
             <div className="w-40 h-40 rounded-full bg-[#FF8BA0]">
               <Image src={speciality1} alt="" />
             </div>
           </div>
 
-          <div className="card w-[95%] md:w-96 mx-auto md:mx-0 h-3/4 grid place-items-center bg-[#FF8BA0] shadow-xl">
+          <div className="card w-full mx-auto md:mx-0 h-3/4 grid place-items-center bg-[#FF8BA0] shadow-xl">
             <div className="card-body mt-10 items-center text-white">
               <h2 className="card-title text-center text-2xl font-medium">
                 Thick Shakes
@@ -43,7 +43,7 @@ function Specialities() {
             </div>
           </div>
 
-          <div className="card w-[95%] md:w-96 mx-auto md:mx-0 h-3/4 grid place-items-center bg-[#6FC9E7] shadow-xl">
+          <div className="card w-full mx-auto md:mx-0 h-3/4 grid place-items-center bg-[#6FC9E7] shadow-xl">
             <div className="card-body  mt-10 items-center text-white">
               <h2 className="card-title text-center text-2xl font-medium">
                 Fresh Taste
@@ -58,13 +58,13 @@ function Specialities() {
 
         {/* card 3 */}
         <div className="relative col-span-6 md:col-span-2 w-fit h-[460px] hover:scale-105 duration-700 transition-allduration-100 transition-all">
-          <div className="absolute -top-20 left-1/2 -translate-x-1/2 z-10">
+          <div className="absolute -top-20 right-0 z-10">
             <div className="w-40 h-40 rounded-full bg-[#553631] grid place-items-center">
               <Image src={speciality3} alt="" className="scale-50" />
             </div>
           </div>
 
-          <div className="card w-[95%] md:w-96 mx-auto md:mx-0 h-3/4 grid place-items-center bg-[#553631] shadow-xl">
+          <div className="card w-full mx-auto md:mx-0 h-3/4 grid place-items-center bg-[#553631] shadow-xl">
             <div className="card-body  mt-10 items-center text-white">
               <h2 className="card-title text-center text-2xl font-medium">
                 Joy Spark
