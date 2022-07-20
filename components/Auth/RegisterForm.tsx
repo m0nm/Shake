@@ -2,22 +2,23 @@ import Image from "next/image";
 
 import google from "../../public/asset/auth/google.svg";
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   return (
     <form className="w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center">
       <h1 className="font-extrabold text-2xl md:text-3xl">
-        Sign in to your account
+        Sign up a new account
       </h1>
 
       <button className="w-full rounded-lg px-4 py-1 shadow-md flex justify-center items-center text-black">
         <Image src={google} alt="" width={18} height={18} />
-        <span className="ml-3">Sign in with Google</span>
+        <span className="ml-3">Sign up with Google</span>
       </button>
 
       <p className="text-slate-400">Or continue with</p>
 
       {/* email and password */}
       <div className="w-full">
+        {/* email */}
         <div className="flex flex-col mb-3">
           <label htmlFor="email" className="text-neutral text-sm">
             Email address
@@ -30,6 +31,7 @@ export const LoginForm = () => {
           />
         </div>
 
+        {/* password */}
         <div className="flex flex-col mb-3">
           <label htmlFor="password" className="text-neutral text-sm">
             Password
@@ -41,26 +43,27 @@ export const LoginForm = () => {
             placeholder="Enter your password"
           />
         </div>
-      </div>
 
-      {/* remember me and forgot password */}
-      <div className="w-full flex justify-between items-center">
-        <div>
-          <input type="checkbox" id="" />
-          <span className="ml-2 text-md font-light">Remember me</span>
+        {/* password confirm*/}
+        <div className="flex flex-col mb-3">
+          <label htmlFor="passwordConfirm" className="text-neutral text-sm">
+            Confirm your password
+          </label>
+          <input
+            className="px-2.5 py-1 mt-2 rounded border-2 border-slate-200 focus:border-slate-400 outline-none"
+            type="password"
+            id="passwordConfirm"
+            placeholder="Confirm your password"
+          />
         </div>
-
-        <a href="" className="text-md font-light underline">
-          Forget your password?
-        </a>
       </div>
 
       {/* submit */}
       <button className="btn btn-primary text-white w-full fw-semibold">
-        Sign In
+        Sign Up
       </button>
 
-      <a href="">Not a member? Sign Up</a>
+      <a href="">Already a member? Sign In</a>
     </form>
   );
 };
