@@ -1,16 +1,35 @@
 import Image from "next/image";
 
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { loginSchema } from "../../utils/form_validation_schema";
+
 import google from "../../public/asset/auth/google.svg";
 import close from "../../public/asset/auth/close.svg";
+import { styleInput } from "../../utils/form_input_classnames";
 
 type IForm = {
   handleDisplay: (value: "login" | "register" | "forget") => void;
   closeModal: () => void;
 };
 
+type IFields = {
+  email: string;
+  password: string;
+};
+
 export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFields>({ resolver: yupResolver(loginSchema) });
+
   return (
-    <form className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center">
+    <form
+      onSubmit={handleSubmit((data) => console.log(data))}
+      className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center"
+    >
       {/* close */}
       <div
         onClick={() => closeModal()}
@@ -30,18 +49,21 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
 
       <p className="text-slate-400">Or continue with</p>
 
-      {/* email and password */}
+      {/* fields */}
       <div className="w-full">
         <div className="flex flex-col mb-3">
           <label htmlFor="email" className="text-neutral text-sm">
             Email address
           </label>
+
+          <p className="text-error text-sm">{errors.email?.message}</p>
+
           <input
-            className="px-2.5 py-1 mt-2 font-medium rounded border-2 border-slate-200 focus:border-slate-400 outline-none"
+            className={styleInput(errors.email)}
             type="email"
             id="email"
             placeholder="Enter your email"
-            required
+            {...register("email")}
           />
         </div>
 
@@ -49,12 +71,15 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
           <label htmlFor="password" className="text-neutral text-sm">
             Password
           </label>
+
+          <p className="text-error text-sm">{errors.password?.message}</p>
+
           <input
-            className="px-2.5 py-1 mt-2 rounded border-2 border-slate-200 focus:border-slate-400 outline-none"
+            className={styleInput(errors.password)}
             type="password"
             id="password"
             placeholder="Enter your password"
-            required
+            {...register("password")}
           />
         </div>
       </div>
