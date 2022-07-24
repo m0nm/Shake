@@ -1,18 +1,32 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useState } from "react";
-import AboutUs from "../components/AboutUs";
-import AuthModal from "../components/Auth/AuthModal";
-import Header from "../components/Header";
-import Location from "../components/Location";
-import Navbar from "../components/Navbar";
-import Specialities from "../components/Specialities";
+
+import {
+  AboutUs,
+  AuthModal,
+  ForgetPasswordForm,
+  Header,
+  Location,
+  LoginForm,
+  Navbar,
+  RegisterForm,
+  Specialities,
+} from "../components";
 
 const Home: NextPage = () => {
   const [modal, setModal] = useState(false);
 
   const openModal = () => setModal(true);
-  // const closeModal = () => setModal(false);
+  const closeModal = () => setModal(false);
+
+  const [display, setDisplay] = useState<"login" | "register" | "forget">(
+    "login"
+  );
+
+  const handleDisplay = (value: "login" | "register" | "forget") => {
+    setDisplay(value);
+  };
 
   return (
     <div>
@@ -21,7 +35,20 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {modal && <AuthModal />}
+      {modal && (
+        <AuthModal>
+          {display === "login" ? (
+            <LoginForm closeModal={closeModal} handleDisplay={handleDisplay} />
+          ) : display === "register" ? (
+            <RegisterForm
+              closeModal={closeModal}
+              handleDisplay={handleDisplay}
+            />
+          ) : (
+            <ForgetPasswordForm handleDisplay={handleDisplay} />
+          )}
+        </AuthModal>
+      )}
 
       <Navbar openModal={openModal} />
 

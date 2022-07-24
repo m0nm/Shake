@@ -5,14 +5,15 @@ import close from "../../public/asset/auth/close.svg";
 
 type IForm = {
   handleDisplay: (value: "login" | "register" | "forget") => void;
+  closeModal: () => void;
 };
 
-export const RegisterForm = ({ handleDisplay }: IForm) => {
+export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
   return (
     <form className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center">
       {/* close */}
       <div
-        onClick={() => handleDisplay("login")}
+        onClick={() => closeModal()}
         className="absolute top-4 left-4 cursor-pointer"
       >
         <Image src={close} alt="back" width={32} height={32} />

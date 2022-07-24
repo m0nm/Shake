@@ -1,7 +1,6 @@
 import Image from "next/image";
 import React from "react";
 
-import map from "../public/asset/locate-us/location.png";
 import store1 from "../public/asset/locate-us/store-1.jpg";
 import store2 from "../public/asset/locate-us/store-2.jpg";
 import store3 from "../public/asset/locate-us/store-3.jpg";
@@ -45,7 +44,14 @@ function LocateUs() {
 
       {/* map */}
       <div className="relative w-full md:w-1/2 h-[80vh]">
-        <Image src={map} alt="" layout="fill" />
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d788.0115706958757!2d144.96913985972114!3d-37.81238488777274!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642c8ffed79cf%3A0x7922ae29d1d13255!2sLove%20In%20Life%20Limos!5e0!3m2!1sen!2sdz!4v1658679275007!5m2!1sen!2sdz"
+          width="600"
+          height="450"
+          style={{ border: 0, height: "100%" }}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
       </div>
     </section>
   );
