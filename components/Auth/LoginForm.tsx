@@ -41,6 +41,7 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
             type="email"
             id="email"
             placeholder="Enter your email"
+            required
           />
         </div>
 
@@ -53,6 +54,7 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
             type="password"
             id="password"
             placeholder="Enter your password"
+            required
           />
         </div>
       </div>

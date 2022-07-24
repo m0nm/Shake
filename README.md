@@ -1,4 +1,4 @@
-finish usecontext for madal close (index and forms)
+finish register form validator
 
 fix widescreen responsive styles
 

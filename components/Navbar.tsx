@@ -6,9 +6,10 @@ import logo from "../public/logo.png";
 
 type INavbar = {
   openModal: () => void;
+  handleDisplay: (value: "login" | "register" | "forget") => void;
 };
 
-function Navbar({ openModal }: INavbar) {
+function Navbar({ openModal, handleDisplay }: INavbar) {
   return (
     <div className="navbar bg-pinky pr-3 md:px-8">
       {/* mobile dropdown */}
@@ -86,7 +87,13 @@ function Navbar({ openModal }: INavbar) {
       </div>
 
       {/* sign in */}
-      <div onClick={openModal} className="navbar-end w-fit md:w-1/2">
+      <div
+        onClick={() => {
+          handleDisplay("login");
+          openModal();
+        }}
+        className="navbar-end w-fit md:w-1/2"
+      >
         <a className="btn btn-outline btn-sm md:btn-md btn-primary rounded-3xl px-4 md:px-8">
           Sign In
         </a>

@@ -50,7 +50,7 @@ const Home: NextPage = () => {
         </AuthModal>
       )}
 
-      <Navbar openModal={openModal} />
+      <Navbar openModal={openModal} handleDisplay={handleDisplay} />
 
       <Header />
 
