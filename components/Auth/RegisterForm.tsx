@@ -1,12 +1,18 @@
+import Router from "next/router";
 import Image from "next/image";
 
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "../../utils/form_validation_schema";
+import { styleInput } from "../../utils/form_input_classnames";
+
+import { useAuthCreateUserWithEmailAndPassword } from "@react-query-firebase/auth";
+import { auth } from "../../pages/_app";
+import { FormSubmitLoader } from "./FormSubmitLoader";
+import { toast } from "react-toastify";
 
 import google from "../../public/asset/auth/google.svg";
 import close from "../../public/asset/auth/close.svg";
-import { styleInput } from "../../utils/form_input_classnames";
 
 type IForm = {
   handleDisplay: (value: "login" | "register" | "forget") => void;
@@ -26,13 +32,39 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
     formState: { errors },
   } = useForm<IFields>({ resolver: yupResolver(registerSchema) });
 
-  const onSubmit: SubmitHandler<IFields> = (data) => console.log(data);
+  const mutation = useAuthCreateUserWithEmailAndPassword(auth, {
+    onSuccess: () => {
+      toast.success("Welcome to the family :)", {});
+      Router.reload();
+    },
+
+    onError: (error) => {
+      const message = error.message;
+
+      if (message === "Firebase: Error (auth/email-already-in-use).") {
+        toast.error("Email already exist!");
+      } else {
+        console.log("error: ", error);
+        toast.error("Something went wrong, Please try again");
+      }
+    },
+  });
+
+  const useSubmit: SubmitHandler<IFields> = ({ email, password }) => {
+    mutation.mutate({
+      email,
+      password,
+    });
+  };
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(useSubmit)}
       className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center"
     >
+      {/* form loading after submit */}
+      {mutation.isLoading && <FormSubmitLoader />}
+
       {/* close */}
       <div
         onClick={() => closeModal()}
@@ -40,18 +72,14 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
       >
         <Image src={close} alt="back" width={32} height={32} />
       </div>
-
       <h1 className="font-extrabold text-2xl md:text-3xl">
         Sign up a new account
       </h1>
-
       <button className="w-full rounded-lg px-4 py-1 shadow-md flex justify-center items-center text-black">
         <Image src={google} alt="" width={18} height={18} />
         <span className="ml-3">Sign up with Google</span>
       </button>
-
       <p className="text-slate-400">Or continue with</p>
-
       {/* fields */}
       <div className="w-full">
         {/* email */}
@@ -105,12 +133,10 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
           />
         </div>
       </div>
-
       {/* submit */}
       <button className="btn btn-primary text-white w-full fw-semibold">
         Sign Up
       </button>
-
       <p className="cursor-pointer" onClick={() => handleDisplay("login")}>
         Already a member? Sign In
       </p>
