@@ -29,7 +29,7 @@ const Home: NextPage = () => {
   };
 
   return (
-    <div>
+    <div className="w-full overflow-x-clip">
       <Head>
         <title>Shake | The smoothiest milkshake in town</title>
         <link rel="icon" href="/favicon.ico" />

@@ -1,6 +1,7 @@
+import type { AppProps } from "next/app";
+
 import "../styles/globals.css";
 import "../styles/custom.css";
-import type { AppProps } from "next/app";
 
 import { QueryClient, QueryClientProvider } from "react-query";
 import { initFirebase } from "../config/initFirebase";

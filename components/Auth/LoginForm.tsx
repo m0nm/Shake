@@ -1,12 +1,18 @@
+import Router from "next/router";
 import Image from "next/image";
 
-import { useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginSchema } from "../../utils/form_validation_schema";
+import { styleInput } from "../../utils/form_input_classnames";
+
+import { useAuthSignInWithEmailAndPassword } from "@react-query-firebase/auth";
+import { auth } from "../../pages/_app";
+import { toast } from "react-toastify";
+import { FormSubmitLoader } from "./FormSubmitLoader";
 
 import google from "../../public/asset/auth/google.svg";
 import close from "../../public/asset/auth/close.svg";
-import { styleInput } from "../../utils/form_input_classnames";
 
 type IForm = {
   handleDisplay: (value: "login" | "register" | "forget") => void;
@@ -25,11 +31,46 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
     formState: { errors },
   } = useForm<IFields>({ resolver: yupResolver(loginSchema) });
 
+  const mutation = useAuthSignInWithEmailAndPassword(auth, {
+    onSuccess: () => {
+      toast.success("Welcome back!", {});
+      Router.reload();
+    },
+
+    onError: (error) => {
+      const { message } = error;
+
+      switch (message) {
+        case "Firebase: Error (auth/user-not-found).":
+          toast.error("User not found!");
+          break;
+
+        case "Firebase: Error (auth/wrong-password).":
+          toast.error("Invalid credentials!");
+          break;
+
+        default:
+          toast.error("Something went wrong, Please try again");
+          break;
+      }
+    },
+  });
+
+  const useSubmit: SubmitHandler<IFields> = ({ email, password }) => {
+    mutation.mutate({
+      email,
+      password,
+    });
+  };
+
   return (
     <form
-      onSubmit={handleSubmit((data) => console.log(data))}
+      onSubmit={handleSubmit(useSubmit)}
       className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center"
     >
+      {/* form submit loading */}
+      {mutation.isLoading && <FormSubmitLoader />}
+
       {/* close */}
       <div
         onClick={() => closeModal()}
