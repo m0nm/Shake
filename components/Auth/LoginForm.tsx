@@ -8,6 +8,8 @@ import { styleInput } from "../../utils/form_input_classnames";
 
 import { useAuthSignInWithEmailAndPassword } from "@react-query-firebase/auth";
 import { auth } from "../../pages/_app";
+import { useGoogleAuth } from "../../utils/form_google_auth";
+
 import { toast } from "react-toastify";
 import { FormSubmitLoader } from "./FormSubmitLoader";
 
@@ -31,6 +33,7 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
     formState: { errors },
   } = useForm<IFields>({ resolver: yupResolver(loginSchema) });
 
+  // email and password login
   const mutation = useAuthSignInWithEmailAndPassword(auth, {
     onSuccess: () => {
       toast.success("Welcome back!", {});
@@ -56,6 +59,10 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
     },
   });
 
+  // google auth
+  const { handleGoogleAuth } = useGoogleAuth();
+
+  // submit handler
   const useSubmit: SubmitHandler<IFields> = ({ email, password }) => {
     mutation.mutate({
       email,
@@ -64,10 +71,7 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(useSubmit)}
-      className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center"
-    >
+    <div className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center">
       {/* form submit loading */}
       {mutation.isLoading && <FormSubmitLoader />}
 
@@ -83,7 +87,11 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
         Sign in to your account
       </h1>
 
-      <button className="w-full rounded-lg px-4 py-1 shadow-md flex justify-center items-center text-black">
+      {/* google auth */}
+      <button
+        onClick={handleGoogleAuth}
+        className="w-full rounded-lg px-4 py-1 shadow-md flex justify-center items-center text-black"
+      >
         <Image src={google} alt="" width={18} height={18} />
         <span className="ml-3">Sign in with Google</span>
       </button>
@@ -91,7 +99,7 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
       <p className="text-slate-400">Or continue with</p>
 
       {/* fields */}
-      <div className="w-full">
+      <form onSubmit={handleSubmit(useSubmit)} className="w-full">
         <div className="flex flex-col mb-3">
           <label htmlFor="email" className="text-neutral text-sm">
             Email address
@@ -123,7 +131,7 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
             {...register("password")}
           />
         </div>
-      </div>
+      </form>
 
       {/* remember me and forgot password */}
       <div className="w-full flex justify-between items-center">
@@ -148,6 +156,6 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
       <p className="cursor-pointer" onClick={() => handleDisplay("register")}>
         Not a member? Sign Up
       </p>
-    </form>
+    </div>
   );
 };

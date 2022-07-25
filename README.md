@@ -1,5 +1,5 @@
-finish register form validator
+restyle toaster
 
-fix widescreen responsive styles
+check widescreen responsive styles
 
 add glow effect on specialities on hover + small scale

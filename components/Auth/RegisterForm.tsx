@@ -8,6 +8,8 @@ import { styleInput } from "../../utils/form_input_classnames";
 
 import { useAuthCreateUserWithEmailAndPassword } from "@react-query-firebase/auth";
 import { auth } from "../../pages/_app";
+import { useGoogleAuth } from "../../utils/form_google_auth";
+
 import { FormSubmitLoader } from "./FormSubmitLoader";
 import { toast } from "react-toastify";
 
@@ -32,6 +34,7 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
     formState: { errors },
   } = useForm<IFields>({ resolver: yupResolver(registerSchema) });
 
+  // email password register
   const mutation = useAuthCreateUserWithEmailAndPassword(auth, {
     onSuccess: () => {
       toast.success("Welcome to the family :)", {});
@@ -50,6 +53,10 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
     },
   });
 
+  // google auth
+  const { handleGoogleAuth } = useGoogleAuth();
+
+  // form submit
   const useSubmit: SubmitHandler<IFields> = ({ email, password }) => {
     mutation.mutate({
       email,
@@ -58,10 +65,7 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(useSubmit)}
-      className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center"
-    >
+    <div className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center">
       {/* form loading after submit */}
       {mutation.isLoading && <FormSubmitLoader />}
 
@@ -72,16 +76,24 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
       >
         <Image src={close} alt="back" width={32} height={32} />
       </div>
+
       <h1 className="font-extrabold text-2xl md:text-3xl">
         Sign up a new account
       </h1>
-      <button className="w-full rounded-lg px-4 py-1 shadow-md flex justify-center items-center text-black">
+
+      {/* google auth */}
+      <button
+        onClick={handleGoogleAuth}
+        className="w-full rounded-lg px-4 py-1 shadow-md flex justify-center items-center text-black"
+      >
         <Image src={google} alt="" width={18} height={18} />
         <span className="ml-3">Sign up with Google</span>
       </button>
+
       <p className="text-slate-400">Or continue with</p>
+
       {/* fields */}
-      <div className="w-full">
+      <form onSubmit={handleSubmit(useSubmit)} className="w-full">
         {/* email */}
         <div className="flex flex-col mb-3">
           <label htmlFor="email" className="text-neutral text-sm">
@@ -132,14 +144,16 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
             {...register("cpassword")}
           />
         </div>
-      </div>
+      </form>
+
       {/* submit */}
       <button className="btn btn-primary text-white w-full fw-semibold">
         Sign Up
       </button>
+
       <p className="cursor-pointer" onClick={() => handleDisplay("login")}>
         Already a member? Sign In
       </p>
-    </form>
+    </div>
   );
 };
