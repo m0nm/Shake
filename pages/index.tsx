@@ -1,20 +1,29 @@
-import type { NextPage } from "next";
+import Image from "next/image";
 import Head from "next/head";
+import type { NextPage } from "next";
 import { useState } from "react";
+
+import { useAuthUser } from "@react-query-firebase/auth";
+import { auth } from "./_app";
 
 import {
   AboutUs,
   AuthModal,
+  Avatar,
   ForgetPasswordForm,
   Header,
   Location,
   LoginForm,
   Navbar,
   RegisterForm,
+  SignInButton,
   Specialities,
 } from "../components";
 
+import avatar from "../public/asset/navbar/avatar/dog.png";
+
 const Home: NextPage = () => {
+  // auth form modal
   const [modal, setModal] = useState(false);
 
   const openModal = () => setModal(true);
@@ -27,6 +36,10 @@ const Home: NextPage = () => {
   const handleDisplay = (value: "login" | "register" | "forget") => {
     setDisplay(value);
   };
+
+  // auth user
+  const user = useAuthUser(["user"], auth);
+  console.log("user: ", user);
 
   return (
     <div className="w-full overflow-x-clip">
@@ -50,7 +63,15 @@ const Home: NextPage = () => {
         </AuthModal>
       )}
 
-      <Navbar openModal={openModal} handleDisplay={handleDisplay} />
+      <Navbar>
+        {user.isLoading ? (
+          <></>
+        ) : user.data ? (
+          <Avatar avatar={avatar} />
+        ) : (
+          <SignInButton openModal={openModal} handleDisplay={handleDisplay} />
+        )}
+      </Navbar>
 
       <Header />
 

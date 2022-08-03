@@ -144,12 +144,12 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
             {...register("cpassword")}
           />
         </div>
-      </form>
 
-      {/* submit */}
-      <button className="btn btn-primary text-white w-full fw-semibold">
-        Sign Up
-      </button>
+        {/* submit */}
+        <button className="btn btn-primary text-white w-full fw-semibold">
+          Sign Up
+        </button>
+      </form>
 
       <p className="cursor-pointer" onClick={() => handleDisplay("login")}>
         Already a member? Sign In

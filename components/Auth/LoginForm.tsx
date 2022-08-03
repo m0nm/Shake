@@ -131,27 +131,27 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
             {...register("password")}
           />
         </div>
-      </form>
 
-      {/* remember me and forgot password */}
-      <div className="w-full flex justify-between items-center">
-        <div>
-          <input type="checkbox" id="" />
-          <span className="ml-2 text-md font-light">Remember me</span>
+        {/* remember me and forgot password */}
+        <div className="w-full flex justify-between items-center">
+          <div>
+            <input type="checkbox" id="" />
+            <span className="ml-2 text-md font-light">Remember me</span>
+          </div>
+
+          <p
+            onClick={() => handleDisplay("forget")}
+            className="text-md font-light underline cursor-pointer"
+          >
+            Forget your password?
+          </p>
         </div>
 
-        <p
-          onClick={() => handleDisplay("forget")}
-          className="text-md font-light underline cursor-pointer"
-        >
-          Forget your password?
-        </p>
-      </div>
-
-      {/* submit */}
-      <button className="btn btn-primary text-white w-full fw-semibold">
-        Sign In
-      </button>
+        {/* submit */}
+        <button className="btn btn-primary text-white w-full fw-semibold mt-3">
+          Sign In
+        </button>
+      </form>
 
       <p className="cursor-pointer" onClick={() => handleDisplay("register")}>
         Not a member? Sign Up

@@ -2,14 +2,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-import logo from "../public/logo.png";
+import logo from "../../public/logo.png";
 
 type INavbar = {
-  openModal: () => void;
-  handleDisplay: (value: "login" | "register" | "forget") => void;
+  children: React.ReactNode;
 };
 
-function Navbar({ openModal, handleDisplay }: INavbar) {
+function Navbar({ children }: INavbar) {
   return (
     <div className="navbar bg-pinky pr-3 md:px-8">
       {/* mobile dropdown */}
@@ -86,18 +85,8 @@ function Navbar({ openModal, handleDisplay }: INavbar) {
         </ul>
       </div>
 
-      {/* sign in */}
-      <div
-        onClick={() => {
-          handleDisplay("login");
-          openModal();
-        }}
-        className="navbar-end w-fit md:w-1/2"
-      >
-        <a className="btn btn-outline btn-sm md:btn-md btn-primary rounded-3xl px-4 md:px-8">
-          Sign In
-        </a>
-      </div>
+      {/* sign in or user */}
+      <div className="navbar-end w-fit md:w-1/2">{children}</div>
     </div>
   );
 }
