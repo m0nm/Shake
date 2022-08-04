@@ -8,7 +8,7 @@ import store4 from "../public/asset/locate-us/store-4.jpg";
 
 function LocateUs() {
   return (
-    <section className="p-3 md:p-10 mt-20 w-full min-h-screen flex flex-col md:flex-row justify-center items-center gap-14">
+    <section className="p-3 md:p-10 mt-20 w-full min-h-screen flex flex-col md:flex-row justify-center items-center gap-14 bg-[#FFEDF1]">
       <div className="w-full md:w-1/2 h-full">
         <h1 className="font-semibold text-4xl">Locate Us</h1>
 

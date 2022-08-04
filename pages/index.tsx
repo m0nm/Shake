@@ -15,6 +15,7 @@ import {
   Location,
   LoginForm,
   Navbar,
+  Products,
   RegisterForm,
   SignInButton,
   Specialities,
@@ -75,6 +76,8 @@ const Home: NextPage = () => {
       <Header />
 
       <Specialities />
+
+      {/* <Products /> */}
 
       <AboutUs />
 
