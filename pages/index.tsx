@@ -39,7 +39,6 @@ const Home: NextPage = () => {
 
   // auth user
   const user = useAuthUser(["user"], auth);
-  console.log("user: ", user);
 
   return (
     <div className="w-full overflow-x-clip">

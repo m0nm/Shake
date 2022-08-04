@@ -30,17 +30,18 @@ export const Avatar = ({ avatar }: { avatar: Image }) => {
         tabIndex={0}
         className="dropdown-content menu p-2 shadow rounded-box w-52 bg-white"
       >
-        <li className="flex flex-row gap-3 items-center p-3 w-full cursor-pointer">
-          <Image src={cart} alt="" width={24} height={24} />
-          Cart
+        <li>
+          <span>
+            <Image src={cart} alt="" width={24} height={24} />
+            Cart
+          </span>
         </li>
 
-        <li
-          onClick={handleSignOut}
-          className="flex flex-row gap-3 items-center p-3 w-full cursor-pointer"
-        >
-          <Image src={logout} alt="" width={24} height={24} />
-          Logout
+        <li onClick={handleSignOut}>
+          <span>
+            <Image src={logout} alt="" width={24} height={24} />
+            Logout
+          </span>
         </li>
       </ul>
     </div>
