@@ -42,7 +42,7 @@ function AboutUs() {
         {/* images */}
         <div className="relative md:w-1/2 h-[640px] grid grid-cols-4 gap-4">
           {/* background square */}
-          <div className="absolute top-1/2 -translate-y-1/2 -right-12 w-4/5 h-[320px] -z-10 bg-[#FFB8C9]"></div>
+          <div className="absolute top-1/2 -translate-y-1/2 -right-12 w-4/5 h-[320px] -z-10 bg-pinky"></div>
 
           <div className="col-span-2 grid grid-rows-6 gap-2">
             <div className="card relative row-span-2 shadow-xl hover:scale-105 transition-all duration-500">

@@ -11,7 +11,7 @@ import { auth } from "../../pages/_app";
 import { useGoogleAuth } from "../../utils/form_google_auth";
 
 import { toast } from "react-toastify";
-import { FormSubmitLoader } from "./FormSubmitLoader";
+import { SpinnerLoader } from "../SpinnerLoader";
 
 import google from "../../public/asset/auth/google.svg";
 import close from "../../public/asset/auth/close.svg";
@@ -73,7 +73,7 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
   return (
     <div className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center">
       {/* form submit loading */}
-      {mutation.isLoading && <FormSubmitLoader />}
+      {mutation.isLoading && <SpinnerLoader overlay />}
 
       {/* close */}
       <div

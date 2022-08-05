@@ -5,16 +5,9 @@ import speciality1 from "../public/asset/specialities/speciality-1.png";
 import speciality2 from "../public/asset/specialities/speciality-2.png";
 import speciality3 from "../public/asset/specialities/speciality-3.png";
 
-import light from "../public/asset/blobs/light-blob.svg";
-
 function Specialities() {
   return (
     <section className="relative px-2 md:px-12 min-h-screen mt-32 ">
-      {/* subtle light effect */}
-      <div className="absolute -top-24 -left-44 scale-95 pointer-events-none">
-        <Image src={light} alt="" />
-      </div>
-
       <div className="py-4 h-[260px] w-full text-center">
         <h3 className="text-4xl font-bold">Customers Love Our Specialities</h3>
       </div>

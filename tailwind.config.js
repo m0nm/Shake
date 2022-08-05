@@ -13,6 +13,12 @@ module.exports = {
 
       backgroundColor: {
         pinky: "#FFB8C9",
+        overlay: "rgba(0, 0, 0, 0.12)",
+      },
+
+      gridTemplateColumns: {
+        "products-containter": "auto 1fr auto",
+        products: "repeat(auto-fill, 300px)",
       },
     },
   },

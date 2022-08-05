@@ -10,7 +10,7 @@ import { useAuthCreateUserWithEmailAndPassword } from "@react-query-firebase/aut
 import { auth } from "../../pages/_app";
 import { useGoogleAuth } from "../../utils/form_google_auth";
 
-import { FormSubmitLoader } from "./FormSubmitLoader";
+import { SpinnerLoader } from "../SpinnerLoader";
 import { toast } from "react-toastify";
 
 import google from "../../public/asset/auth/google.svg";
@@ -67,7 +67,7 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
   return (
     <div className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center">
       {/* form loading after submit */}
-      {mutation.isLoading && <FormSubmitLoader />}
+      {mutation.isLoading && <SpinnerLoader overlay />}
 
       {/* close */}
       <div

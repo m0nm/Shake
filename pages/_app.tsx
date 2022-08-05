@@ -11,7 +11,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 // firebase
-const firebase = initFirebase();
+export const firebase = initFirebase();
 export const auth = getAuth(firebase);
 
 function MyApp({ Component, pageProps }: AppProps) {

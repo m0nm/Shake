@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Head from "next/head";
 import type { NextPage } from "next";
 import { useState } from "react";
@@ -77,9 +76,9 @@ const Home: NextPage = () => {
 
       <Specialities />
 
-      {/* <Products /> */}
-
       <AboutUs />
+
+      <Products />
 
       <Location />
 
