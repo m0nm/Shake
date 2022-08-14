@@ -9,10 +9,7 @@ import { Card } from "./Card";
 
 import light from "../../public/asset/blobs/light-blob.svg";
 import light2 from "../../public/asset/blobs/light-blob-2.svg";
-import {
-  useFirestoreDocumentData,
-  useFirestoreQueryData,
-} from "@react-query-firebase/firestore";
+import { useFirestoreQueryData } from "@react-query-firebase/firestore";
 import { SpinnerLoader } from "../SpinnerLoader";
 
 // init firestore

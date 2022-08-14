@@ -1,15 +1,46 @@
 import Image from "next/image";
-import React from "react";
+import React, { FormEvent, useRef } from "react";
+
+import { useAuthSendPasswordResetEmail } from "@react-query-firebase/auth";
+import { auth } from "../../pages/_app";
 
 type IForm = {
   handleDisplay: (value: "login" | "register" | "forget") => void;
 };
 
 import arrowLeft from "../../public/asset/auth/arrow-left.svg";
+import { SpinnerLoader } from "../SpinnerLoader";
+import { toast } from "react-toastify";
 
 export const ForgetPasswordForm = ({ handleDisplay }: IForm) => {
+  // email input value
+  const ref = useRef<HTMLInputElement>(null);
+
+  const mutation = useAuthSendPasswordResetEmail(auth, {
+    onSuccess: () => {
+      toast.success("A reset link has been sent, Check your email");
+    },
+
+    onError: (error) => {
+      if (error.message === "Firebase: Error (auth/user-not-found).")
+        toast.error("User not found!");
+    },
+  });
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    const email = ref.current?.value || "";
+
+    mutation.mutate({ email });
+  };
+
   return (
-    <form className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center">
+    <form
+      onSubmit={handleSubmit}
+      className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center"
+    >
+      {mutation.isLoading && <SpinnerLoader />}
+
       {/*arrow back  */}
       <div
         onClick={() => handleDisplay("login")}
@@ -33,9 +64,12 @@ export const ForgetPasswordForm = ({ handleDisplay }: IForm) => {
           <label htmlFor="email" className="text-neutral text-sm">
             Email address
           </label>
+
           <input
+            ref={ref}
             className="px-2.5 py-1 mt-2 font-medium rounded border-2 border-slate-200 focus:border-slate-400 outline-none"
             type="email"
+            required
             id="email"
             placeholder="Enter your email"
           />

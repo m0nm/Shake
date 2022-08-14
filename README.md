@@ -1,4 +1,4 @@
-restyle toaster
+restyle toaster with daisyui alerts
 
 check widescreen responsive styles
 
