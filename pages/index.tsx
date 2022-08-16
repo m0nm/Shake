@@ -9,6 +9,7 @@ import {
   AboutUs,
   AuthModal,
   Avatar,
+  Cart,
   ForgetPasswordForm,
   Header,
   Location,
@@ -36,6 +37,10 @@ const Home: NextPage = () => {
   const handleDisplay = (value: "login" | "register" | "forget") => {
     setDisplay(value);
   };
+
+  // cart state
+  const [showCart, setShowCart] = useState(false);
+  const handleShowCart = (value: boolean) => setShowCart(value);
 
   // auth user
   const user = useAuthUser(["user"], auth);
@@ -66,11 +71,13 @@ const Home: NextPage = () => {
         {user.isLoading ? (
           <></>
         ) : user.data ? (
-          <Avatar avatar={avatar} />
+          <Avatar avatar={avatar} handleShowCart={handleShowCart} />
         ) : (
           <SignInButton openModal={openModal} handleDisplay={handleDisplay} />
         )}
       </Navbar>
+
+      {showCart && <Cart showCart={showCart} handleShowCart={handleShowCart} />}
 
       <Header />
 

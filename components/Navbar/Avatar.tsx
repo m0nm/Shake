@@ -7,14 +7,18 @@ import { auth } from "../../pages/_app";
 import cart from "../../public/asset/navbar/cart.svg";
 import logout from "../../public/asset/navbar/logout.png";
 
-type Image = {
-  src: string;
-  height: number;
-  width: number;
-  alt?: string;
+type IAvatar = {
+  avatar: {
+    src: string;
+    height: number;
+    width: number;
+    alt?: string;
+  };
+
+  handleShowCart: (value: boolean) => void;
 };
 
-export const Avatar = ({ avatar }: { avatar: Image }) => {
+export const Avatar = ({ avatar, handleShowCart }: IAvatar) => {
   // sign out
   const mutation = useAuthSignOut(auth);
 
@@ -30,7 +34,7 @@ export const Avatar = ({ avatar }: { avatar: Image }) => {
         tabIndex={0}
         className="dropdown-content menu p-2 shadow rounded-box w-52 bg-white"
       >
-        <li>
+        <li onClick={() => handleShowCart(true)}>
           <span>
             <Image src={cart} alt="" width={24} height={24} />
             Cart

@@ -4,13 +4,13 @@ import React, { FormEvent, useRef } from "react";
 import { useAuthSendPasswordResetEmail } from "@react-query-firebase/auth";
 import { auth } from "../../pages/_app";
 
-type IForm = {
-  handleDisplay: (value: "login" | "register" | "forget") => void;
-};
-
 import arrowLeft from "../../public/asset/auth/arrow-left.svg";
 import { SpinnerLoader } from "../SpinnerLoader";
 import { toast } from "react-toastify";
+
+type IForm = {
+  handleDisplay: (value: "login" | "register" | "forget") => void;
+};
 
 export const ForgetPasswordForm = ({ handleDisplay }: IForm) => {
   // email input value

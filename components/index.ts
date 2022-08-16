@@ -4,6 +4,7 @@ export { default as Navbar } from "./Navbar/Navbar";
 export { default as Products } from "./Products/Products";
 export { default as AboutUs } from "./AboutUs";
 export { default as Specialities } from "./Specialities";
+export { default as Cart } from "./Cart/CartContainer";
 
 export { Avatar } from "./Navbar/Avatar";
 export { SignInButton } from "./Navbar/SignInButton";
