@@ -54,13 +54,15 @@ function Navbar({ children }: INavbar) {
       {/* logo */}
       <div className="navbar-start w-fit md:w-1/2 mx-auto md:mx-0">
         <Link href="/">
-          <Image
-            src={logo}
-            alt="shake logo"
-            className="cursor-pointer"
-            width={86}
-            height={40}
-          />
+          <a>
+            <Image
+              src={logo}
+              alt="shake logo"
+              className="cursor-pointer"
+              width={86}
+              height={40}
+            />
+          </a>
         </Link>
       </div>
 

@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { firebase } from "../../pages/_app";
 import { collection, getFirestore, query, where } from "firebase/firestore";
 
-import { Card } from "./Card";
+import { ProductCard } from "./ProductCard";
 
 import light from "../../public/asset/blobs/light-blob.svg";
 import light2 from "../../public/asset/blobs/light-blob-2.svg";
@@ -88,7 +88,7 @@ function Products() {
             {menu?.isSuccess &&
               menu.data.map((item) => {
                 return (
-                  <Card
+                  <ProductCard
                     key={item.id}
                     name={item.name}
                     description={item.description}
