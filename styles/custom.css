@@ -1,4 +1,36 @@
-/* nav links underline animation effect */
+/* custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-button {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cecdcd;
+  border: 59px none #ffffff;
+  border-radius: 46px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #cecdcd;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #bbbbbb;
+}
+::-webkit-scrollbar-track {
+  background: #e6e2e2;
+  border: 59px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #e6e2e2;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* nav links underline animation */
 .link-underline {
   border-bottom-width: 0;
   background-image: linear-gradient(transparent, transparent),
@@ -76,4 +108,31 @@
 }
 .ldio-8zy9x4p1een div {
   box-sizing: content-box;
+}
+
+/* specialities card hover glow effect */
+.speciality-card {
+  position: relative;
+}
+
+.speciality-card::before {
+  content: "";
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: radial-gradient(
+    400px circle at var(--mouse-x) var(--mouse-y),
+    rgba(255, 255, 255, 0.1),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 500ms;
+  border-radius: 1rem;
+}
+
+.speciality-card:hover::before {
+  opacity: 1;
 }

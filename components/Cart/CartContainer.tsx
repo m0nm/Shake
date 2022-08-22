@@ -4,10 +4,11 @@ import { Cart } from "./Cart";
 import arrow from "../../public/asset/icons/arrow-left.svg";
 
 type ICartContainer = {
+  showCart: boolean;
   handleShowCart: (value: boolean) => void;
 };
 
-function CartContainer({ handleShowCart }: ICartContainer) {
+function CartContainer({ handleShowCart, showCart }: ICartContainer) {
   const clearCart = () => {
     if (typeof window !== undefined)
       localStorage.setItem("cart", JSON.stringify([]));
@@ -17,7 +18,11 @@ function CartContainer({ handleShowCart }: ICartContainer) {
   };
 
   return (
-    <div className="h-full fixed top-0 right-0 z-50 shadow-lg grid justify-end">
+    <div
+      className={`h-full fixed top-0 right-0 z-50 shadow-lg grid justify-end ease-in-out duration-300 ${
+        showCart ? "translate-x-0" : "translate-x-full"
+      }`}
+    >
       <ul className="h-full p-2 w-96 bg-white">
         <div className="flex justify-between items-center py-4">
           {/* back arrow */}

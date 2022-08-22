@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { Fade, Slide } from "react-awesome-reveal";
 
 import heroImage from "../public/asset/hero/hero-25.png";
 import blob1 from "../public/asset/blobs/blob1.svg";
@@ -28,19 +29,21 @@ function Header() {
       <div className="w-full min-h-screen grid grid-cols-6 items-center p-8">
         {/* text */}
         <div className="relative z-20 col-span-6 md:col-span-4 grid md:block place-items-center">
-          <h1 className="text-5xl md:text-6xl font-extrabold ">
-            The <span className="text-primary">Best </span>
-            Most <span className="text-primary">Delicious</span>
-          </h1>
+          <Slide triggerOnce cascade damping={0.7}>
+            <h1 className="text-5xl md:text-6xl font-bold ">
+              Homemade Milkshakes
+            </h1>
 
-          <h1 className="text-5xl md:text-6xl font-extrabold mt-3">
-            Homemade
-            <span className="text-primary"> Milkshakes!</span>
-          </h1>
+            <h1 className="text-5xl md:text-6xl font-bold mt-3">
+              Created With{" "}
+              <span className="text-primary font-extrabold">Love</span> &{" "}
+              <span className="text-primary font-extrabold">Joy</span>
+            </h1>
 
-          <button className="btn btn-primary btn-lg rounded-full px-10 mt-16 mb-12 md:mb-0">
-            Shop Now
-          </button>
+            <button className="btn btn-primary btn-lg rounded-full px-10 mt-16 mb-12 md:mb-0">
+              Shop Now
+            </button>
+          </Slide>
         </div>
 
         {/* image */}

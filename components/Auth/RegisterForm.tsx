@@ -65,7 +65,7 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
   };
 
   return (
-    <div className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center">
+    <div className="relative w-full h-full p-3 md:p-8 grid place-items-center">
       {/* form loading after submit */}
       {mutation.isLoading && <SpinnerLoader overlay />}
 

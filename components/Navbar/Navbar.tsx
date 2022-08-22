@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Fade } from "react-awesome-reveal";
 
 import logo from "../../public/logo.png";
 
@@ -9,8 +10,27 @@ type INavbar = {
 };
 
 function Navbar({ children }: INavbar) {
+  // change navbar bg color on scroll
+  const ref = useRef<HTMLDivElement>(null);
+  const [bgColor, setBgColor] = useState(false);
+
+  useEffect(() => {
+    const handleOnScroll = () => {
+      const navHeight = ref?.current?.clientHeight as number;
+
+      window.scrollY > navHeight ? setBgColor(true) : setBgColor(false);
+    };
+
+    window.addEventListener("scroll", handleOnScroll);
+  });
+
   return (
-    <div className="navbar bg-pinky pr-3 md:px-8">
+    <div
+      ref={ref}
+      className={`navbar sticky z-30 top-0 duration-700 transition-all ${
+        bgColor ? " bg-white shadow-md" : "bg-pinky"
+      }`}
+    >
       {/* mobile dropdown */}
       <div className="dropdown">
         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -31,7 +51,7 @@ function Navbar({ children }: INavbar) {
         </label>
         <ul
           tabIndex={0}
-          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-accent rounded-box w-52"
+          className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52"
         >
           <li className="font-medium link-underline link-underline-black hover:text-primary">
             <Link href="/">Home</Link>
@@ -51,44 +71,50 @@ function Navbar({ children }: INavbar) {
         </ul>
       </div>
 
-      {/* logo */}
-      <div className="navbar-start w-fit md:w-1/2 mx-auto md:mx-0">
-        <Link href="/">
-          <a>
-            <Image
-              src={logo}
-              alt="shake logo"
-              className="cursor-pointer"
-              width={86}
-              height={40}
-            />
-          </a>
-        </Link>
-      </div>
+      <Fade triggerOnce className="w-full">
+        <div className="flex items-center justify-between w-full pr-3 md:px-8">
+          {/* logo */}
+          <div className="w-fit mx-auto md:mx-0">
+            <Link href="/">
+              <a>
+                <Image
+                  src={logo}
+                  alt="shake logo"
+                  className="cursor-pointer"
+                  width={86}
+                  height={40}
+                />
+              </a>
+            </Link>
+          </div>
+          {/* links */}
+          <div className="hidden lg:block w-fit mx-auto">
+            <ul className="flex gap-12 text-secondary">
+              <li className="font-medium link-underline link-underline-black hover:text-primary">
+                <Link href="#">Home</Link>
+              </li>
 
-      {/* links */}
-      <div className="navbar-center hidden lg:flex">
-        <ul className="flex gap-12 text-secondary">
-          <li className="font-medium link-underline link-underline-black hover:text-primary">
-            <Link href="/">Home</Link>
-          </li>
+              <li className="font-medium link-underline link-underline-black hover:text-primary">
+                <Link href="#specialities">Specialities</Link>
+              </li>
 
-          <li className="font-medium link-underline link-underline-black hover:text-primary">
-            <Link href="/">Specialities</Link>
-          </li>
+              <li className="font-medium link-underline link-underline-black hover:text-primary">
+                <Link href="#about-us">About Us</Link>
+              </li>
 
-          <li className="font-medium link-underline link-underline-black hover:text-primary">
-            <Link href="/">About Us</Link>
-          </li>
+              <li className="font-medium link-underline link-underline-black hover:text-primary">
+                <Link href="#products">Shakes</Link>
+              </li>
 
-          <li className="font-medium link-underline link-underline-black hover:text-primary">
-            <Link href="/">Locate Us</Link>
-          </li>
-        </ul>
-      </div>
-
-      {/* sign in or user */}
-      <div className="navbar-end w-fit md:w-1/2">{children}</div>
+              <li className="font-medium link-underline link-underline-black hover:text-primary">
+                <Link href="#locate-us">Locate Us</Link>
+              </li>
+            </ul>
+          </div>
+          {/* sign in or user */}
+          <div>{children}</div>
+        </div>
+      </Fade>
     </div>
   );
 }

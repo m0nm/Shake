@@ -77,7 +77,7 @@ const Home: NextPage = () => {
         )}
       </Navbar>
 
-      {showCart && <Cart showCart={showCart} handleShowCart={handleShowCart} />}
+      <Cart showCart={showCart} handleShowCart={handleShowCart} />
 
       <Header />
 

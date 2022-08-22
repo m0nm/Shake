@@ -37,7 +37,7 @@ export const ForgetPasswordForm = ({ handleDisplay }: IForm) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center"
+      className="relative w-full h-full p-3 md:p-8 grid place-items-center"
     >
       {mutation.isLoading && <SpinnerLoader />}
 

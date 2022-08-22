@@ -11,6 +11,7 @@ import light from "../../public/asset/blobs/light-blob.svg";
 import light2 from "../../public/asset/blobs/light-blob-2.svg";
 import { useFirestoreQueryData } from "@react-query-firebase/firestore";
 import { SpinnerLoader } from "../SpinnerLoader";
+import { Fade } from "react-awesome-reveal";
 
 // init firestore
 const firestore = getFirestore(firebase);
@@ -45,7 +46,7 @@ function Products() {
   }, [active]);
 
   return (
-    <section className="relative min-h-screen">
+    <section id="products" className="relative min-h-screen">
       {/* subtle light effect */}
       <div className="absolute -top-24 -left-[24%] scale-95 pointer-events-none">
         <Image src={light} alt="" />
@@ -67,7 +68,7 @@ function Products() {
         </p>
 
         {/* categories */}
-        <div className="flex items-center justify-center gap-6 mb-16">
+        <div className="flex items-center justify-center flex-wrap gap-6 mb-16">
           {categories.map((category: string) => (
             <button
               key={uuidv4()}
@@ -84,19 +85,20 @@ function Products() {
           <div className="flex flex-wrap gap-8">
             {/* loading products */}
             {menu.isLoading && <SpinnerLoader />}
-
-            {menu?.isSuccess &&
-              menu.data.map((item) => {
-                return (
-                  <ProductCard
-                    key={item.id}
-                    name={item.name}
-                    description={item.description}
-                    price={item.price}
-                    image={item.image}
-                  />
-                );
-              })}
+            <Fade triggerOnce cascade damping={0.55}>
+              {menu?.isSuccess &&
+                menu.data.map((item) => {
+                  return (
+                    <ProductCard
+                      key={item.id}
+                      name={item.name}
+                      description={item.description}
+                      price={item.price}
+                      image={item.image}
+                    />
+                  );
+                })}
+            </Fade>
           </div>
         </div>
       </div>

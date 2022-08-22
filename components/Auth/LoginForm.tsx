@@ -10,6 +10,7 @@ import { useAuthSignInWithEmailAndPassword } from "@react-query-firebase/auth";
 import { auth } from "../../pages/_app";
 import { useGoogleAuth } from "../../utils/form_google_auth";
 
+import { Fade } from "react-awesome-reveal";
 import { toast } from "react-toastify";
 import { SpinnerLoader } from "../SpinnerLoader";
 
@@ -71,7 +72,7 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
   };
 
   return (
-    <div className="relative w-full md:w-1/2 h-full p-3 md:p-8 grid place-items-center">
+    <div className="relative w-full h-full p-3 md:p-8 grid place-items-center">
       {/* form submit loading */}
       {mutation.isLoading && <SpinnerLoader overlay />}
 
