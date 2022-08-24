@@ -2,10 +2,10 @@ import Image from "next/image";
 import React from "react";
 import { Fade, Slide } from "react-awesome-reveal";
 
-import heroImage from "../public/asset/hero/hero-25.png";
-import blob1 from "../public/asset/blobs/blob1.svg";
-import blob2 from "../public/asset/blobs/blob2.svg";
-import blob3 from "../public/asset/blobs/blob3.svg";
+import heroImage from "../../public/asset/hero/hero-25.png";
+import blob1 from "../../public/asset/blobs/blob1.svg";
+import blob2 from "../../public/asset/blobs/blob2.svg";
+import blob3 from "../../public/asset/blobs/blob3.svg";
 
 function Header() {
   return (
@@ -40,9 +40,12 @@ function Header() {
               <span className="text-primary font-extrabold">Joy</span>
             </h1>
 
-            <button className="btn btn-primary btn-lg rounded-full px-10 mt-16 mb-12 md:mb-0">
+            <a
+              href="#products"
+              className="btn btn-primary btn-lg rounded-full px-10 mt-16 mb-12 md:mb-0"
+            >
               Shop Now
-            </button>
+            </a>
           </Slide>
         </div>
 

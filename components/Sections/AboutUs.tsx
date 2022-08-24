@@ -2,12 +2,12 @@ import Image from "next/image";
 import React from "react";
 import { Slide } from "react-awesome-reveal";
 
-import image1 from "../public/asset/about-us/aboutus-1.jpg";
-import image2 from "../public/asset/about-us/aboutus-2.jpg";
-import image3 from "../public/asset/about-us/aboutus-3.jpg";
-import image4 from "../public/asset/about-us/aboutus-4.jpg";
+import image1 from "../../public/asset/about-us/aboutus-1.jpg";
+import image2 from "../../public/asset/about-us/aboutus-2.jpg";
+import image3 from "../../public/asset/about-us/aboutus-3.jpg";
+import image4 from "../../public/asset/about-us/aboutus-4.jpg";
 
-import light from "../public/asset/blobs/light-blob.svg";
+import light from "../../public/asset/blobs/light-blob.svg";
 
 function AboutUs() {
   return (

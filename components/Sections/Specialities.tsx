@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import { Fade, Slide } from "react-awesome-reveal";
 import Tilt from "react-parallax-tilt";
 
-import speciality1 from "../public/asset/specialities/speciality-1.png";
-import speciality2 from "../public/asset/specialities/speciality-2.png";
-import speciality3 from "../public/asset/specialities/speciality-3.png";
+import speciality1 from "../../public/asset/specialities/speciality-1.png";
+import speciality2 from "../../public/asset/specialities/speciality-2.png";
+import speciality3 from "../../public/asset/specialities/speciality-3.png";
 
 function Specialities() {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });

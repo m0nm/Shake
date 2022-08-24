@@ -21,7 +21,7 @@ export const ProductCard = (props: IProductCard) => {
   const addToCart = (product: IProductCard) => {
     // check if user logged in
     if (!user.data) {
-      displayToast("error", "You have to login first");
+      displayToast("error", "Please login first");
       return;
     }
 
@@ -59,11 +59,12 @@ export const ProductCard = (props: IProductCard) => {
       </figure>
 
       <div className="card-body">
-        <h2 className="card-title text-left text-base">{props.name}</h2>
+        <h2 className="card-title text-left text-base inline align-top h-9">
+          {props.name}
+        </h2>
+        <p className="truncate mt-2">{props.description}</p>
 
-        <p className="truncate">{props.description}</p>
-
-        <div className="card-actions items-center justify-between mt-6">
+        <div className="card-actions items-center justify-between mt-4">
           <span className="text-2xl font-bold">${props.price}</span>
 
           <button

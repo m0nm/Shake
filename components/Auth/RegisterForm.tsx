@@ -8,7 +8,7 @@ import { styleInput } from "../../utils/form_input_classnames";
 
 import { useAuthCreateUserWithEmailAndPassword } from "@react-query-firebase/auth";
 import { auth } from "../../pages/_app";
-import { useGoogleAuth } from "../../utils/form_google_auth";
+import { useGoogleAuth } from "../../utils/useGoogleAuth";
 
 import { SpinnerLoader } from "../SpinnerLoader";
 
@@ -37,7 +37,7 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
   // email password register
   const mutation = useAuthCreateUserWithEmailAndPassword(auth, {
     onSuccess: () => {
-      displayToast("success", "Welcome to the family :)", {});
+      displayToast("success", "Welcome to the family :)");
       Router.reload();
     },
 
@@ -77,7 +77,7 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
         <Image src={close} alt="back" width={32} height={32} />
       </div>
 
-      <h1 className="font-extrabold text-2xl md:text-3xl">
+      <h1 className="font-extrabold text-2xl md:text-3xl mt-4 md:mt-0">
         Sign up a new account
       </h1>
 

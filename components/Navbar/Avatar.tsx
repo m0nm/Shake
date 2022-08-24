@@ -6,6 +6,7 @@ import { auth } from "../../pages/_app";
 
 import cart from "../../public/asset/navbar/cart.svg";
 import logout from "../../public/asset/navbar/logout.png";
+import { clearCart } from "../Cart/CartContainer";
 
 type IAvatar = {
   avatar: {
@@ -22,7 +23,10 @@ export const Avatar = ({ avatar, handleShowCart }: IAvatar) => {
   // sign out
   const mutation = useAuthSignOut(auth);
 
-  const handleSignOut = () => mutation.mutate();
+  const handleSignOut = () => {
+    clearCart();
+    mutation.mutate();
+  };
 
   return (
     <div className="dropdown dropdown-end">

@@ -81,12 +81,12 @@ function Products() {
         </div>
 
         {/* products */}
-        <div className="container px-8 grid place-items-center">
-          <div className="flex flex-wrap gap-8">
+        <div className="container md:px-8 grid place-items-center">
+          <div className="flex flex-wrap gap-8 justify-center md:justify-start">
             {/* loading products */}
             {menu.isLoading && <SpinnerLoader />}
             <Fade triggerOnce cascade damping={0.55}>
-              {menu?.isSuccess &&
+              {menu.isSuccess &&
                 menu.data.map((item) => {
                   return (
                     <ProductCard

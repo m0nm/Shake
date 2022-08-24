@@ -8,7 +8,7 @@ import { styleInput } from "../../utils/form_input_classnames";
 
 import { useAuthSignInWithEmailAndPassword } from "@react-query-firebase/auth";
 import { auth } from "../../pages/_app";
-import { useGoogleAuth } from "../../utils/form_google_auth";
+import { useGoogleAuth } from "../../utils/useGoogleAuth";
 
 import { SpinnerLoader } from "../SpinnerLoader";
 
@@ -36,7 +36,7 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
   // email and password login
   const mutation = useAuthSignInWithEmailAndPassword(auth, {
     onSuccess: () => {
-      displayToast("success", "Welcome back!", {});
+      displayToast("success", "Welcome back!");
       Router.reload();
     },
 
@@ -83,7 +83,7 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
         <Image src={close} alt="back" width={32} height={32} />
       </div>
 
-      <h1 className="font-extrabold text-2xl md:text-3xl">
+      <h1 className="font-extrabold text-2xl md:text-3xl mt-4 md:mt-0">
         Sign in to your account
       </h1>
 

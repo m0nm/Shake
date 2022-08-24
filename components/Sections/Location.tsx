@@ -1,10 +1,10 @@
 import Image from "next/image";
 import React from "react";
 
-import store1 from "../public/asset/locate-us/store-1.jpg";
-import store2 from "../public/asset/locate-us/store-2.jpg";
-import store3 from "../public/asset/locate-us/store-3.jpg";
-import store4 from "../public/asset/locate-us/store-4.jpg";
+import store1 from "../../public/asset/locate-us/store-1.jpg";
+import store2 from "../../public/asset/locate-us/store-2.jpg";
+import store3 from "../../public/asset/locate-us/store-3.jpg";
+import store4 from "../../public/asset/locate-us/store-4.jpg";
 
 function LocateUs() {
   return (
