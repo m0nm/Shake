@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.10.0",
     "@hookform/resolvers": "^2.9.6",
+    "@hookstate/core": "^4.0.0-rc21",
     "@react-query-firebase/auth": "^1.0.0-dev.1",
     "@react-query-firebase/firestore": "^1.0.0-dev.7",
     "daisyui": "^2.19.0",

@@ -1,5 +1,3 @@
-restyle toaster with daisyui alerts
-
 check widescreen responsive styles
 
-add glow effect on specialities on hover + small scale
+fix product card action height + cart on mobile + empty localstorage on logout + modal portal

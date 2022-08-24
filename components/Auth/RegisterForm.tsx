@@ -11,10 +11,10 @@ import { auth } from "../../pages/_app";
 import { useGoogleAuth } from "../../utils/form_google_auth";
 
 import { SpinnerLoader } from "../SpinnerLoader";
-import { toast } from "react-toastify";
 
 import google from "../../public/asset/auth/google.svg";
 import close from "../../public/asset/auth/close.svg";
+import { displayToast } from "../Toasts/toastStore";
 
 type IForm = {
   handleDisplay: (value: "login" | "register" | "forget") => void;
@@ -37,7 +37,7 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
   // email password register
   const mutation = useAuthCreateUserWithEmailAndPassword(auth, {
     onSuccess: () => {
-      toast.success("Welcome to the family :)", {});
+      displayToast("success", "Welcome to the family :)", {});
       Router.reload();
     },
 
@@ -45,10 +45,10 @@ export const RegisterForm = ({ handleDisplay, closeModal }: IForm) => {
       const message = error.message;
 
       if (message === "Firebase: Error (auth/email-already-in-use).") {
-        toast.error("Email already exist!");
+        displayToast("error", "Email already exist!");
       } else {
         console.log("error: ", error);
-        toast.error("Something went wrong, Please try again");
+        displayToast("error", "Something went wrong, Please try again");
       }
     },
   });

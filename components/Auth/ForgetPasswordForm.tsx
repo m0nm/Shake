@@ -6,7 +6,7 @@ import { auth } from "../../pages/_app";
 
 import arrowLeft from "../../public/asset/auth/arrow-left.svg";
 import { SpinnerLoader } from "../SpinnerLoader";
-import { toast } from "react-toastify";
+import { displayToast } from "../Toasts/toastStore";
 
 type IForm = {
   handleDisplay: (value: "login" | "register" | "forget") => void;
@@ -18,12 +18,12 @@ export const ForgetPasswordForm = ({ handleDisplay }: IForm) => {
 
   const mutation = useAuthSendPasswordResetEmail(auth, {
     onSuccess: () => {
-      toast.success("A reset link has been sent, Check your email");
+      displayToast("info", "A reset link has been sent, Check your email");
     },
 
     onError: (error) => {
       if (error.message === "Firebase: Error (auth/user-not-found).")
-        toast.error("User not found!");
+        displayToast("error", "User not found!");
     },
   });
 

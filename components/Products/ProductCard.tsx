@@ -4,8 +4,8 @@ import React from "react";
 import { useAuthUser } from "@react-query-firebase/auth";
 import { auth } from "../../pages/_app";
 
-import { toast } from "react-toastify";
 import { ICartItem } from "../Cart/CartItem";
+import { displayToast } from "../Toasts/toastStore";
 
 export type IProductCard = {
   name: string;
@@ -21,7 +21,7 @@ export const ProductCard = (props: IProductCard) => {
   const addToCart = (product: IProductCard) => {
     // check if user logged in
     if (!user.data) {
-      toast.error("You have to login first");
+      displayToast("error", "You have to login first");
       return;
     }
 
@@ -37,7 +37,7 @@ export const ProductCard = (props: IProductCard) => {
       if (itemExistIndex > -1) {
         cart[itemExistIndex].quantity++;
         localStorage.setItem("cart", JSON.stringify(cart));
-        return toast.success("added to cart");
+        return displayToast("success", "added to cart");
       }
 
       // else add new item to cart
@@ -48,7 +48,7 @@ export const ProductCard = (props: IProductCard) => {
       // to render the cart changes
       window.dispatchEvent(new Event("storage"));
 
-      return toast.success("added to cart");
+      return displayToast("success", "added to cart");
     }
   };
 

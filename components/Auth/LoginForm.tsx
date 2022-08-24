@@ -10,12 +10,11 @@ import { useAuthSignInWithEmailAndPassword } from "@react-query-firebase/auth";
 import { auth } from "../../pages/_app";
 import { useGoogleAuth } from "../../utils/form_google_auth";
 
-import { Fade } from "react-awesome-reveal";
-import { toast } from "react-toastify";
 import { SpinnerLoader } from "../SpinnerLoader";
 
 import google from "../../public/asset/auth/google.svg";
 import close from "../../public/asset/auth/close.svg";
+import { displayToast } from "../Toasts/toastStore";
 
 type IForm = {
   handleDisplay: (value: "login" | "register" | "forget") => void;
@@ -37,7 +36,7 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
   // email and password login
   const mutation = useAuthSignInWithEmailAndPassword(auth, {
     onSuccess: () => {
-      toast.success("Welcome back!", {});
+      displayToast("success", "Welcome back!", {});
       Router.reload();
     },
 
@@ -46,15 +45,15 @@ export const LoginForm = ({ handleDisplay, closeModal }: IForm) => {
 
       switch (message) {
         case "Firebase: Error (auth/user-not-found).":
-          toast.error("User not found!");
+          displayToast("error", "User not found!");
           break;
 
         case "Firebase: Error (auth/wrong-password).":
-          toast.error("Invalid credentials!");
+          displayToast("error", "Invalid credentials!");
           break;
 
         default:
-          toast.error("Something went wrong, Please try again");
+          displayToast("error", "Something went wrong, Please try again");
           break;
       }
     },

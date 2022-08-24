@@ -7,8 +7,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { initFirebase } from "../config/initFirebase";
 import { getAuth } from "firebase/auth";
 
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import Toasts from "../components/Toasts/Toasts";
 
 // firebase
 export const firebase = initFirebase();
@@ -22,18 +21,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <QueryClientProvider client={queryClient}>
         {/* notification */}
-        <ToastContainer
-          position="top-center"
-          theme="colored"
-          autoClose={1000}
-          hideProgressBar
-          closeOnClick={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          icon={false}
-          style={{ zIndex: 100 }}
-        />
+        <Toasts />
 
         <Component {...pageProps} />
       </QueryClientProvider>
