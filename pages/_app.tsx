@@ -8,6 +8,8 @@ import { initFirebase } from "../config/initFirebase";
 import { getAuth } from "firebase/auth";
 
 import Toasts from "../components/Toasts/Toasts";
+import { useEffect, useState } from "react";
+import { LoadingScreen } from "../components/LoadingScreen";
 
 // firebase
 export const firebase = initFirebase();
@@ -17,13 +19,17 @@ function MyApp({ Component, pageProps }: AppProps) {
   // react query
   const queryClient = new QueryClient();
 
+  // load page
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => setLoaded(true), []);
+
   return (
     <>
       <QueryClientProvider client={queryClient}>
         {/* notification */}
         <Toasts />
 
-        <Component {...pageProps} />
+        {loaded ? <Component {...pageProps} /> : <LoadingScreen />}
       </QueryClientProvider>
     </>
   );

@@ -12,6 +12,14 @@ export type IToast = {
 function Toasts() {
   const toasts = useHookstate(toastStore).get();
 
+  // explicit colors to fix daisyui color bug
+  const colors = {
+    info: "#3ABFF8",
+    success: "#36D399",
+    warning: "#FBBD23",
+    error: "#F87272",
+  };
+
   return (
     <ClientOnlyPortal selector="#toasts">
       <div className="z-50 flex flex-col fixed inset-0 space-y-4 items-end pointer-events-none">
@@ -23,7 +31,8 @@ function Toasts() {
             return (
               <div
                 key={toast.id}
-                className={`alert alert-${toast.type} shadow-lg px-8`}
+                className={`alert shadow-lg px-8`}
+                style={{ backgroundColor: colors[toast.type] }}
               >
                 <span className="text-white font-semibold">
                   {toast.message}

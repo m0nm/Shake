@@ -44,6 +44,7 @@ function AboutUs() {
             </button>
           </Slide>
         </div>
+
         {/* images */}
         <div className="relative md:w-1/2 h-[640px] grid grid-cols-4 gap-4">
           {/* background square */}
@@ -51,13 +52,13 @@ function AboutUs() {
 
           <div className="col-span-2 grid grid-rows-6 gap-2">
             <div className="card relative row-span-2 shadow-xl hover:scale-105 transition-all duration-500">
-              <figure>
+              <figure className="relative w-full h-full">
                 <Image src={image4} alt="" layout="fill" />
               </figure>
             </div>
 
             <div className="card relative row-span-4 shadow-xl hover:scale-105 transition-all duration-500">
-              <figure>
+              <figure className="relative w-full h-full">
                 <Image src={image1} alt="" layout="fill" />
               </figure>
             </div>
@@ -65,12 +66,12 @@ function AboutUs() {
 
           <div className="col-span-2 grid grid-rows-6 gap-2">
             <div className="card relative row-span-4 shadow-xl hover:scale-105 transition-all duration-500">
-              <figure>
+              <figure className="relative w-full h-full">
                 <Image src={image3} alt="" layout="fill" />
               </figure>
             </div>
             <div className="card relative row-span-2 shadow-xl hover:scale-105 transition-all duration-500">
-              <figure>
+              <figure className="relative w-full h-full">
                 <Image src={image2} alt="" layout="fill" />
               </figure>
             </div>

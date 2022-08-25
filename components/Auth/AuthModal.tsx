@@ -16,7 +16,7 @@ function AuthModal({ children }: { children: ReactNode }) {
 
             {/* image */}
             <div className="hidden md:block w-1/2 h-full relative">
-              <Image src={image} alt="" layout="fill" />
+              <Image src={image} alt="" layout="fill" priority />
             </div>
           </div>
         </Slide>

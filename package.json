@@ -24,7 +24,7 @@
     "react-hook-form": "^7.33.1",
     "react-parallax-tilt": "^1.7.57",
     "react-query": "^3.39.1",
-    "react-toastify": "^9.0.7",
+    "sharp": "^0.30.7",
     "uuid": "^8.3.2",
     "yup": "^0.32.11"
   },
@@ -32,6 +32,7 @@
     "@tailwindcss/typography": "^0.5.4",
     "@types/node": "18.0.5",
     "@types/react": "18.0.15",
+    "@types/react-custom-scrollbars": "^4.0.10",
     "@types/react-dom": "18.0.6",
     "@types/react-query": "^1.2.9",
     "@types/uuid": "^8.3.4",

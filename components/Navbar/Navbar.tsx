@@ -12,23 +12,23 @@ type INavbar = {
 function Navbar({ children }: INavbar) {
   // change navbar bg color on scroll
   const ref = useRef<HTMLDivElement>(null);
-  const [bgColor, setBgColor] = useState(false);
+  const [switchColor, setSwitchColor] = useState(false);
 
   useEffect(() => {
     const handleOnScroll = () => {
       const navHeight = ref?.current?.clientHeight as number;
 
-      window.scrollY > navHeight ? setBgColor(true) : setBgColor(false);
+      window.scrollY > navHeight ? setSwitchColor(true) : setSwitchColor(false);
     };
 
     window.addEventListener("scroll", handleOnScroll);
-  });
+  }, [switchColor]);
 
   return (
     <div
       ref={ref}
       className={`navbar sticky z-30 top-0 duration-700 transition-all ${
-        bgColor ? " bg-white shadow-md" : "bg-pinky"
+        switchColor ? " bg-white shadow-md" : "bg-pinky"
       }`}
     >
       {/* mobile dropdown */}
@@ -54,19 +54,23 @@ function Navbar({ children }: INavbar) {
           className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52"
         >
           <li className="font-medium link-underline link-underline-black hover:text-primary">
-            <Link href="/">Home</Link>
+            <Link href="#">Home</Link>
           </li>
 
           <li className="font-medium link-underline link-underline-black hover:text-primary">
-            <Link href="/">Specialities</Link>
+            <Link href="#specialities">Specialities</Link>
           </li>
 
           <li className="font-medium link-underline link-underline-black hover:text-primary">
-            <Link href="/">About Us</Link>
+            <Link href="#about-us">About Us</Link>
           </li>
 
           <li className="font-medium link-underline link-underline-black hover:text-primary">
-            <Link href="/">Locate Us</Link>
+            <Link href="#products">Shakes</Link>
+          </li>
+
+          <li className="font-medium link-underline link-underline-black hover:text-primary">
+            <Link href="#locate-us">Locate Us</Link>
           </li>
         </ul>
       </div>

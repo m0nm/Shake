@@ -37,6 +37,9 @@ export const ProductCard = (props: IProductCard) => {
       if (itemExistIndex > -1) {
         cart[itemExistIndex].quantity++;
         localStorage.setItem("cart", JSON.stringify(cart));
+        // to render the cart changes
+        window.dispatchEvent(new Event("storage"));
+
         return displayToast("success", "added to cart");
       }
 
@@ -53,7 +56,7 @@ export const ProductCard = (props: IProductCard) => {
   };
 
   return (
-    <div className="card card-compact w-[320px] shadow-md bg-transparent border">
+    <div className="card card-compact shadow-md bg-transparent border">
       <figure className="relative w-full h-[270px]">
         <Image src={props.image} alt={props.name} layout="fill" quality={100} />
       </figure>

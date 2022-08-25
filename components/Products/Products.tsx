@@ -82,7 +82,7 @@ function Products() {
 
         {/* products */}
         <div className="container md:px-8 grid place-items-center">
-          <div className="flex flex-wrap gap-8 justify-center md:justify-start">
+          <div className="grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 px-2">
             {/* loading products */}
             {menu.isLoading && <SpinnerLoader />}
             <Fade triggerOnce cascade damping={0.55}>
