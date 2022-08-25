@@ -1,6 +1,9 @@
-<h1 style="text-align: center;font-weight: 700; color: #DE3152">Shake</h1>
-<p style="text-align: center">A beverage delivery shop website</p>
+<h1 align="center" style="text-align: center;font-weight: 700; color: #DE3152">Shake</h1>
+<p align="center" style="text-align: center">A beverage delivery shop website</p>
 <hr></hr>
+
+# Demo
+[Click Here](https://shake-roan.vercel.app/#locate-us)
 
 # Features
 
